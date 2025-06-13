@@ -44,27 +44,13 @@ export default function Contact() {
         {
             icon: Mail,
             label: '邮箱',
-            value: 'your.email@example.com',
-            href: 'mailto:your.email@example.com'
-        },
-        {
-            icon: Phone,
-            label: '电话',
-            value: '+86 138 0000 0000',
-            href: 'tel:+8613800000000'
-        },
-        {
-            icon: MapPin,
-            label: '位置',
-            value: '中国，北京',
-            href: '#'
+            value: 'river-911@qq.com',
+            href: 'mailto:river-911@qq.com'
         }
     ]
 
     const socialLinks = [
-        { icon: Github, href: 'https://github.com/River', label: 'GitHub' },
-        { icon: Linkedin, href: 'https://linkedin.com/in/River', label: 'LinkedIn' },
-        { icon: Twitter, href: 'https://twitter.com/River', label: 'Twitter' },
+        { icon: Github, href: 'https://github.com/River', label: 'GitHub' }
     ]
 
     return (

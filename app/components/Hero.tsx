@@ -23,9 +23,8 @@ export default function Hero() {
     }, [])
 
     const socialLinks = [
-        { icon: Github, href: 'https://github.com/yourusername', label: 'GitHub' },
-        { icon: Linkedin, href: 'https://linkedin.com/in/yourusername', label: 'LinkedIn' },
-        { icon: Mail, href: 'mailto:your.email@example.com', label: 'Email' },
+        { icon: Github, href: 'https://github.com/HeShen-1', label: 'GitHub' },
+        { icon: Mail, href: 'mailto:river-911@qq.com', label: 'Email' },
     ]
 
     return (
@@ -72,7 +71,7 @@ export default function Hero() {
                             你好，我是
                         </span>
                         <br />
-                        <span className="text-gray-900 dark:text-white">张三</span>
+                        <span className="text-gray-900 dark:text-white">River</span>
                     </motion.h1>
 
                     {/* 打字机效果的副标题 */}

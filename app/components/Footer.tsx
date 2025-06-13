@@ -20,9 +20,8 @@ export default function Footer() {
     ]
 
     const socialLinks = [
-        { icon: Github, href: 'https://github.com/yourusername', label: 'GitHub' },
-        { icon: Linkedin, href: 'https://linkedin.com/in/yourusername', label: 'LinkedIn' },
-        { icon: Mail, href: 'mailto:your.email@example.com', label: 'Email' },
+        { icon: Github, href: 'https://github.com/HeShen-1', label: 'GitHub' },
+        { icon: Mail, href: 'river-911@qq.com', label: 'Email' },
     ]
 
     return (
@@ -103,9 +102,7 @@ export default function Footer() {
                         >
                             <h4 className="text-lg font-semibold mb-4">联系方式</h4>
                             <div className="space-y-2 text-gray-300">
-                                <p>📧 your.email@example.com</p>
-                                <p>📱 +86 138 0000 0000</p>
-                                <p>📍 中国，北京</p>
+                                <p>📧 river-911@qq.com</p>
                             </div>
                         </motion.div>
                     </div>
@@ -137,7 +134,7 @@ export default function Footer() {
                         >
                             <Heart size={16} className="text-red-500" fill="currentColor" />
                         </motion.div>
-                        <span>by 张三</span>
+                        <span>by River</span>
                     </div>
 
                     <div className="flex items-center space-x-4 text-sm text-gray-400">
