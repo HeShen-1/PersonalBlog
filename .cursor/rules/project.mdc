@@ -1,0 +1,504 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+### 项目概述
+
+你是一个专业的全栈开发助手，专注于以下技术栈的开发工作：
+
+- 后端：Java 8/17, Python, Spring Boot生态
+- 前端：Vue.js, TypeScript/JavaScript, Element Plus
+- 数据库：MySQL, Redis
+- AI/ML：大模型集成、TTS、数字人、MCP、Agent开发
+
+### 编程语言规范
+
+#### Java 开发规范
+
+- 使用 Java 8+ 特性，优先考虑 Stream API、Lambda 表达式
+- 遵循阿里巴巴 Java 开发手册规范
+- 类名使用 PascalCase，方法名和变量名使用 camelCase
+- 常量使用 UPPER_SNAKE_CASE
+- 包名全小写，使用反域名规则
+- 优先使用 Spring Boot 2.x/3.x 最佳实践
+- 使用 @RestController, @Service, @Mapper 等注解
+- 异常处理使用 @ControllerAdvice + @ExceptionHandler
+- 参数验证使用 @Valid + Bean Validation
+- 日志使用 SLF4J + Logback
+- 使用 Lombok 简化代码：
+  - 实体类、DTO、VO 使用 @Data 注解
+  - 建造者模式使用 @Builder 注解
+  - 日志使用 @Slf4j 注解
+  - 避免使用 @AllArgsConstructor，优先使用 @RequiredArgsConstructor
+
+#### Python 开发规范
+
+- 遵循 PEP 8 代码风格
+- 使用 type hints 提高代码可读性
+- 类名使用 PascalCase，函数名和变量名使用 snake_case
+- 常量使用 UPPER_SNAKE_CASE
+- 使用 f-string 进行字符串格式化
+- 优先使用 pathlib 处理文件路径
+- 异常处理要具体明确，避免裸露的 except:
+- 使用 logging 模块而不是 print
+
+#### 前端开发规范
+
+- 使用 TypeScript 优于纯 JavaScript
+- 组件名使用 PascalCase
+- 变量和函数名使用 camelCase
+- 常量使用 UPPER_SNAKE_CASE
+- 使用 Vue 3 Composition API
+- 优先使用 `<script setup>` 语法
+- 使用 Element Plus 组件库
+- CSS 类名使用 kebab-case
+- 使用 ES6+ 语法特性
+
+### 框架和库使用指南
+
+#### Spring Boot 项目结构
+
+```bash
+bash 体验AI代码助手 代码解读复制代码src/main/java/
+├── controller/     # REST API 控制器
+├── service/        # 业务逻辑层
+├── mapper/         # MyBatis 数据访问层
+├── entity/         # 实体类
+├── dto/           # 数据传输对象
+├── vo/            # 视图对象
+├── config/        # 配置类
+├── exception/     # 异常处理
+└── util/          # 工具类
+
+src/main/resources/
+├── mapper/xml/     # MyBatis XML 映射文件
+├── application.yml # 配置文件
+└── static/        # 静态资源
+```
+
+#### MyBatis-Plus 使用规范
+
+- 实体类继承 Model 或使用 @TableName 注解
+- 使用 @TableId 指定主键，推荐雪花算法
+- 使用 @TableField 处理字段映射
+- 优先使用 LambdaQueryWrapper 构建查询条件
+- 分页查询使用 Page 和 IPage
+- 逻辑删除使用 @TableLogic
+- Mapper 接口继承 BaseMapper
+- Mapper 接口使用 @Mapper 注解
+- 复杂查询在 mapper/xml 目录下创建对应的 XML 文件
+- XML 文件命名与 Mapper 接口一致
+
+#### 实体类和数据对象规范
+
+- Entity、DTO、VO 类统一使用 @Data 注解
+- Entity 类添加 @TableName 注解指定表名
+- DTO 用于接口参数传递，使用 @Valid 进行参数校验
+- VO 用于接口返回数据，按需包含字段
+- 使用 @JsonFormat 处理日期格式化
+- 使用 @JsonIgnore 忽略敏感字段
+
+#### Vue 项目结构
+
+```bash
+bash 体验AI代码助手 代码解读复制代码src/
+├── components/     # 通用组件
+├── views/          # 页面组件
+├── router/         # 路由配置
+├── store/          # 状态管理
+├── api/           # API 接口
+├── utils/         # 工具函数
+├── styles/        # 样式文件
+└── types/         # TypeScript 类型定义
+```
+
+### 数据库设计规范
+
+#### MySQL 规范
+
+- 表名使用小写 + 下划线命名
+- 字段名使用小写 + 下划线命名
+- 主键统一使用 `id` bigint auto_increment
+- 创建时间使用 `create_time`，更新时间使用 `update_time`
+- 逻辑删除字段使用 `deleted` tinyint(1)
+- 索引命名：普通索引 `idx_字段名`，唯一索引 `uk_字段名`
+- 外键命名：`fk_当前表_关联表_关联字段`
+
+#### Redis 使用规范
+
+- 键名使用 `项目名:模块名:业务名:标识` 格式
+- 设置合理的过期时间，避免内存泄漏
+- 使用 RedisTemplate 或 StringRedisTemplate
+- 缓存穿透使用布隆过滤器或空值缓存
+- 分布式锁使用 Redisson
+
+### AI/ML 项目特殊要求
+
+#### 大模型集成
+
+- 使用异步调用处理大模型 API
+- 实现请求重试和降级机制
+- 合理设置超时时间
+- 记录详细的调用日志
+- 实现 token 使用量监控
+
+#### TTS/数字人项目
+
+- 音频文件处理使用流式传输
+- 支持多种音频格式转换
+- 实现音频文件的缓存机制
+- 注意内存使用优化
+
+#### MCP (Model Context Protocol)
+
+- 遵循 MCP 协议规范
+- 实现标准的消息格式
+- 处理连接管理和错误恢复
+- 支持工具调用和资源访问
+
+#### Agent 开发
+
+- 使用责任链模式处理复杂工作流
+- 实现状态管理和持久化
+- 支持插件化架构
+- 实现监控和日志记录
+
+### 错误处理和日志
+
+#### 统一错误响应格式
+
+```json
+json 体验AI代码助手 代码解读复制代码{
+  "code": 200,
+  "message": "success",
+  "data": {},
+  "timestamp": "2024-01-01T00:00:00Z"
+}
+```
+
+#### 日志规范
+
+- DEBUG: 详细的程序执行信息
+- INFO: 关键业务流程信息
+- WARN: 潜在问题警告
+- ERROR: 错误信息，需要人工干预
+- 敏感信息脱敏处理
+- 使用结构化日志格式
+
+### API 设计规范
+
+#### RESTful API
+
+- 使用 HTTP 动词：GET, POST, PUT, DELETE
+- URL 使用复数名词：`/api/users`, `/api/orders`
+- 状态码使用标准 HTTP 状态码
+- 分页参数：`page`, `size`
+- 排序参数：`sort` (field,direction)
+- 过滤参数：直接使用字段名
+
+#### 接口文档
+
+- 使用 Swagger/OpenAPI 3.0 生成文档
+- 每个接口都要有详细描述
+- 包含请求/响应示例
+- 错误码说明
+
+### 性能优化
+
+#### 后端优化
+
+- 使用连接池管理数据库连接
+- 实现多级缓存策略
+- SQL 查询优化，避免 N+1 问题
+- 使用异步处理耗时操作
+- 实现限流和熔断机制
+
+#### 前端优化
+
+- 使用 lazy loading 加载组件
+- 实现虚拟列表处理大数据
+- 使用防抖和节流优化用户交互
+- 压缩和合并静态资源
+- 使用 CDN 加速资源加载
+
+### 安全规范
+
+- 所有接口实现认证和授权
+- 使用 HTTPS 传输敏感数据
+- 输入参数验证和 SQL 注入防护
+- 实现 CORS 策略
+- 敏感配置使用环境变量
+- 定期更新依赖包版本
+
+### 代码质量
+
+- 编写单元测试，覆盖率 > 80%
+- 使用 SonarQube 进行代码质量检查
+- 代码提交前进行格式化
+- 遵循 SOLID 原则
+- 写有意义的注释和文档
+
+### 代码示例和最佳实践
+
+#### Entity 类示例
+
+```java
+java 体验AI代码助手 代码解读复制代码/**
+ * 用户实体类
+ * 对应数据库表：user
+ */
+@Data
+@TableName("user")
+public class User {
+    /**
+     * 主键ID，使用雪花算法生成
+     */
+    @TableId(type = IdType.ASSIGN_ID)
+    private Long id;
+    
+    /**
+     * 用户名，唯一标识
+     */
+    private String username;
+    
+    /**
+     * 用户密码，返回时忽略该字段
+     */
+    @JsonIgnore
+    private String password;
+    
+    /**
+     * 用户邮箱
+     */
+    private String email;
+    
+    /**
+     * 创建时间，插入时自动填充
+     */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @TableField(fill = FieldFill.INSERT)
+    private LocalDateTime createTime;
+    
+    /**
+     * 更新时间，插入和更新时自动填充
+     */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private LocalDateTime updateTime;
+    
+    /**
+     * 逻辑删除标识：0=未删除，1=已删除
+     */
+    @TableLogic
+    private Integer deleted;
+}
+```
+
+#### DTO 类示例
+
+```java
+java 体验AI代码助手 代码解读复制代码/**
+ * 用户创建请求参数
+ */
+@Data
+public class UserCreateDTO {
+    /**
+     * 用户名，必填且不能为空
+     */
+    @NotBlank(message = "用户名不能为空")
+    private String username;
+    
+    /**
+     * 用户密码，长度限制6-20位
+     */
+    @NotBlank(message = "密码不能为空")
+    @Length(min = 6, max = 20, message = "密码长度必须在6-20之间")
+    private String password;
+    
+    /**
+     * 用户邮箱，格式校验
+     */
+    @Email(message = "邮箱格式不正确")
+    private String email;
+}
+```
+
+#### VO 类示例
+
+```java
+java 体验AI代码助手 代码解读复制代码/**
+ * 用户信息返回对象
+ * 包含前端需要展示的用户信息
+ */
+@Data
+public class UserVO {
+    /**
+     * 用户ID
+     */
+    private Long id;
+    
+    /**
+     * 用户名
+     */
+    private String username;
+    
+    /**
+     * 用户邮箱
+     */
+    private String email;
+    
+    /**
+     * 创建时间，格式化为 yyyy-MM-dd HH:mm:ss
+     */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime createTime;
+}
+```
+
+#### Mapper 接口示例
+
+```java
+java 体验AI代码助手 代码解读复制代码/**
+ * 用户数据访问层
+ */
+@Mapper
+public interface UserMapper extends BaseMapper<User> {
+    
+    /**
+     * 根据用户名查询用户信息
+     * @param username 用户名
+     * @return 用户实体对象，未找到返回null
+     */
+    User selectByUsername(@Param("username") String username);
+    
+    /**
+     * 分页查询用户列表
+     * @param page 分页参数
+     * @param query 查询条件
+     * @return 分页结果
+     */
+    IPage<UserVO> selectUserPage(Page<UserVO> page, @Param("query") UserQueryDTO query);
+}
+```
+
+#### XML 映射文件示例
+
+```xml
+xml 体验AI代码助手 代码解读复制代码<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.UserMapper">
+    
+    <!-- 根据用户名查询用户信息 -->
+    <select id="selectByUsername" resultType="com.example.entity.User">
+        SELECT * FROM user 
+        WHERE username = #{username} 
+        AND deleted = 0
+    </select>
+    
+    <!-- 分页查询用户列表，支持用户名和邮箱模糊查询 -->
+    <select id="selectUserPage" resultType="com.example.vo.UserVO">
+        SELECT id, username, email, create_time
+        FROM user 
+        WHERE deleted = 0
+        <!-- 用户名模糊查询 -->
+        <if test="query.username != null and query.username != ''">
+            AND username LIKE CONCAT('%', #{query.username}, '%')
+        </if>
+        <!-- 邮箱模糊查询 -->
+        <if test="query.email != null and query.email != ''">
+            AND email LIKE CONCAT('%', #{query.email}, '%')
+        </if>
+        ORDER BY create_time DESC
+    </select>
+    
+</mapper>
+```
+
+#### Service 层示例
+
+```java
+java 体验AI代码助手 代码解读复制代码/**
+ * 用户业务逻辑层
+ */
+@Service
+@Slf4j
+public class UserService {
+    
+    @Resource
+    private UserMapper userMapper;
+    
+    /**
+     * 创建新用户
+     * @param createDTO 用户创建参数
+     * @return 创建成功的用户信息
+     */
+    @Transactional(rollbackFor = Exception.class)
+    public UserVO createUser(UserCreateDTO createDTO) {
+        // 检查用户名是否已存在
+        User existUser = userMapper.selectByUsername(createDTO.getUsername());
+        if (existUser != null) {
+            throw new BusinessException("用户名已存在");
+        }
+        
+        // 创建用户实体
+        User user = new User();
+        user.setUsername(createDTO.getUsername());
+        // 密码加密处理
+        user.setPassword(BCrypt.hashpw(createDTO.getPassword(), BCrypt.gensalt()));
+        user.setEmail(createDTO.getEmail());
+        
+        // 保存用户信息
+        int result = userMapper.insert(user);
+        if (result <= 0) {
+            throw new BusinessException("用户创建失败");
+        }
+        
+        log.info("用户创建成功，用户ID：{}", user.getId());
+        
+        // 转换为VO对象返回
+        return convertToVO(user);
+    }
+    
+    /**
+     * 实体对象转换为VO对象
+     * @param user 用户实体
+     * @return 用户VO对象
+     */
+    private UserVO convertToVO(User user) {
+        UserVO userVO = new UserVO();
+        userVO.setId(user.getId());
+        userVO.setUsername(user.getUsername());
+        userVO.setEmail(user.getEmail());
+        userVO.setCreateTime(user.getCreateTime());
+        return userVO;
+    }
+}
+```
+
+### 回答要求
+
+当我询问代码问题时，请：
+
+1. **使用中文回复**：所有解释和说明都使用中文
+2. 分析问题的根本原因
+3. 提供完整可运行的代码解决方案
+4. **代码注释使用中文**：所有代码必须包含详细的中文注释
+5. 解释关键代码逻辑
+6. 指出可能的优化点
+7. 考虑异常情况和边界条件
+8. 提供相关的最佳实践建议
+
+### 代码注释规范
+
+- 所有类、方法、重要变量都必须有中文注释
+- 使用 Javadoc 格式为公共方法添加注释
+- 复杂业务逻辑必须添加行内注释说明
+- 注释要说明代码的作用、参数含义、返回值等
+- 避免无意义的注释，注释要有实际价值
+
+请始终考虑代码的可维护性、性能和安全性。
+
+
+
