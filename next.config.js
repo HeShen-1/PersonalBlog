@@ -6,7 +6,10 @@ const nextConfig = {
     distDir: 'dist',
     images: {
         unoptimized: true
-    }
+    },
+    // GitHub Pages配置
+    basePath: process.env.NODE_ENV === 'production' ? '/PersonalBlog' : '',
+    assetPrefix: process.env.NODE_ENV === 'production' ? '/PersonalBlog' : '',
 }
 
 module.exports = nextConfig 
