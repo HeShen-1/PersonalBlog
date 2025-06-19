@@ -14,19 +14,22 @@ import {
 
 export default function Home() {
     const [currentTime, setCurrentTime] = useState('')
-    const [currentBg, setCurrentBg] = useState('image/night.png')
+    const [currentBg, setCurrentBg] = useState(`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/image/night.png`)
     const [showBgSelector, setShowBgSelector] = useState(false)
     const [showPraiseCode, setShowPraiseCode] = useState(false)
     const { theme } = useTheme()
 
+    // 获取正确的资源路径前缀
+    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
+
     const backgroundImages = [
-        { name: 'image/bg/night.png', label: '夜景' },
-        { name: 'image/bg/aurora.png', label: '极光1' },
-        { name: 'image/bg/afterglow.png', label: '余晖' },
-        { name: 'image/bg/sea_compressed.png', label: '海景' },
-        { name: 'image/bg/lights.png', label: '极光2' },
-        { name: 'image/bg/Aoyama Hara not old.png', label: '青山' },
-        { name: 'image/bg/ZengJiaYan.png', label: '重庆曾家岩' }
+        { name: `${basePath}/image/bg/night.png`, label: '夜景' },
+        { name: `${basePath}/image/bg/aurora.png`, label: '极光1' },
+        { name: `${basePath}/image/bg/afterglow.png`, label: '余晖' },
+        { name: `${basePath}/image/bg/sea_compressed.png`, label: '海景' },
+        { name: `${basePath}/image/bg/lights.png`, label: '极光2' },
+        { name: `${basePath}/image/bg/Aoyama Hara not old.png`, label: '青山' },
+        { name: `${basePath}/image/bg/ZengJiaYan.png`, label: '重庆曾家岩' }
     ]
 
     useEffect(() => {
@@ -123,7 +126,7 @@ export default function Home() {
             ) : (
                 <div
                     className="fixed inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000"
-                    style={{ backgroundImage: `url('/${currentBg}')` }}
+                    style={{ backgroundImage: `url('${currentBg}')` }}
                 />
             )}
 
@@ -151,7 +154,7 @@ export default function Home() {
                                     }`}
                             >
                                 <img
-                                    src={`/${bg.name}`}
+                                    src={bg.name}
                                     alt={bg.label}
                                     className="w-full h-full object-cover"
                                 />
@@ -179,7 +182,7 @@ export default function Home() {
                             {/* 使用pic.png作为头像，显示完整的用户头像 */}
                             <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-white/20">
                                 <img
-                                    src="/image/pic.png"
+                                    src={`${basePath}/image/pic.png`}
                                     alt="River"
                                     className="w-full h-full object-cover"
                                 />
@@ -666,11 +669,11 @@ export default function Home() {
                         <div className="flex justify-center mb-6">
                             <div className="w-64 h-64 bg-white rounded-2xl p-4 shadow-2xl">
                                 <img
-                                    src="/image/ZanShangMa.jpg"
+                                    src={`${basePath}/image/ZanShangMa.jpg`}
                                     alt="赞赏码"
                                     className="w-full h-full object-contain"
                                     onError={(e) => {
-                                        e.currentTarget.src = '/image/pic.png' // 如果图片加载失败，使用默认图片
+                                        e.currentTarget.src = `${basePath}/image/pic.png` // 如果图片加载失败，使用默认图片
                                     }}
                                 />
                             </div>
