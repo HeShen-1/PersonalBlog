@@ -29,7 +29,6 @@ export default function Navbar({ onImageToggle, showImageToggle = false }: Navba
         { name: '博客', href: '/blog', icon: BookOpen },
         { name: '关于', href: '#about', icon: User },
         { name: '项目', href: '#projects', icon: Briefcase },
-        { name: '联系', href: '#contact', icon: Mail },
     ]
 
     return (
