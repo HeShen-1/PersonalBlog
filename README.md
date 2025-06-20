@@ -12,11 +12,12 @@
 
 ### 🔧 功能特性
 - **实时时间显示** - 右下角显示当前时间
-- **GitHub贡献图** - 模拟GitHub活跃度展示
-- **技能标签云** - 展示个人技能栈
+- **真实GitHub贡献图** - 🎯 **新功能** 集成真实GitHub API，显示实际贡献活动
+- **个人信息编辑** - 可视化编辑个人资料、技能标签、时间线
+- **技能标签云** - 展示个人技能栈，支持动态添加/删除
 - **项目展示区** - 博客、云盘、实验室等模块
-- **个人时间线** - 重要事件时间记录
-- **社交链接** - GitHub、邮箱等联系方式
+- **个人时间线** - 重要事件时间记录，支持日期选择器
+- **社交链接** - GitHub、邮箱、赞赏码等联系方式
 
 ### 🎯 技术栈
 - **前端框架**: Next.js 14 (App Router)
@@ -93,6 +94,23 @@ PersonalBlog/
 
 ## 🛠️ 自定义配置
 
+### GitHub贡献图配置
+🎯 **新功能**: 真实GitHub贡献图集成
+
+#### 修改GitHub用户名
+```typescript
+// 在 app/page.tsx 中修改
+const [githubUsername, setGithubUsername] = useState('your-github-username')
+```
+
+#### 可选：添加GitHub Token (提高API限制)
+创建 `.env.local` 文件：
+```bash
+NEXT_PUBLIC_GITHUB_TOKEN=your_github_token_here
+```
+
+详细配置请参考：[GitHub贡献图功能说明](./README_GITHUB_CONTRIBUTIONS.md)
+
 ### 修改背景图片
 在 `app/page.tsx` 中修改 `backgroundImages` 数组：
 
@@ -103,20 +121,17 @@ const backgroundImages = [
 ]
 ```
 
-### 修改个人信息
-在 `app/page.tsx` 中修改相应的数据数组：
+### 个人信息编辑
+✨ 现在支持可视化编辑！点击个人信息卡片右上角的设置按钮即可编辑：
+- 头像上传 (支持拖拽)
+- 个人信息 (姓名、标题、地址、简介)
+- 技能标签 (动态添加/删除，智能推荐)
+- 时间线管理 (事件编辑，日期选择器)
 
+所有修改会自动保存到本地存储。
+
+### 修改项目/站点
 ```typescript
-// 技能标签
-const skills = ['技能1', '技能2', '技能3']
-
-// 时间线
-const timeline = [
-    { event: '事件描述', date: '2024.1' },
-    // ... 更多事件
-]
-
-// 项目/站点
 const sites = [
     {
         title: '项目名',
