@@ -1,4 +1,4 @@
-# Zyyo 个人主页
+# River 个人主页
 
 > 一个现代化、响应式的个人主页，采用 Next.js 14 + TypeScript + Tailwind CSS 构建
 
