@@ -5,18 +5,17 @@
 ## ✨ 设计特色
 
 ### 🎨 视觉设计
-- **多背景切换** - 7种精美背景图片可选（夜景、极光、余晖、海景等）
+- **多背景切换** - 8种精美背景图片可选（夜景、极光、余晖、海景等）
 - **玻璃态设计** - 现代化的毛玻璃效果，透明度与模糊度完美结合
 - **动画效果** - 丰富的进入动画和交互反馈
 - **响应式布局** - 完美适配移动端和桌面端
 
 ### 🔧 功能特性
-- **实时时间显示** - 右下角显示当前时间
-- **真实GitHub贡献图** - 🎯 **新功能** 集成真实GitHub API，显示实际贡献活动
-- **个人信息编辑** - 可视化编辑个人资料、技能标签、时间线
-- **技能标签云** - 展示个人技能栈，支持动态添加/删除
+- **真实GitHub贡献图** - 集成真实GitHub API，显示实际贡献活动
+- **个人信息展示** - 展示头像、姓名、标题、位置、简介等信息
+- **技能标签展示** - 展示个人技能栈
 - **项目展示区** - 博客、云盘、实验室等模块
-- **个人时间线** - 重要事件时间记录，支持日期选择器
+- **个人时间线** - 重要事件时间记录展示
 - **社交链接** - GitHub、邮箱、赞赏码等联系方式
 
 ### 🎯 技术栈
@@ -95,12 +94,10 @@ PersonalBlog/
 ## 🛠️ 自定义配置
 
 ### GitHub贡献图配置
-🎯 **新功能**: 真实GitHub贡献图集成
-
 #### 修改GitHub用户名
+在 `app/data/constants.ts` 中修改：
 ```typescript
-// 在 app/page.tsx 中修改
-const [githubUsername, setGithubUsername] = useState('your-github-username')
+export const GITHUB_USERNAME = 'your-github-username'
 ```
 
 #### 可选：添加GitHub Token (提高API限制)
@@ -109,46 +106,57 @@ const [githubUsername, setGithubUsername] = useState('your-github-username')
 NEXT_PUBLIC_GITHUB_TOKEN=your_github_token_here
 ```
 
-详细配置请参考：[GitHub贡献图功能说明](./README_GITHUB_CONTRIBUTIONS.md)
-
-### 修改背景图片
-在 `app/page.tsx` 中修改 `backgroundImages` 数组：
+### 修改个人信息
+在 `app/data/constants.ts` 中修改默认个人信息：
 
 ```typescript
-const backgroundImages = [
-    { name: 'your-image.jpg', label: '你的标签' },
+export const getDefaultProfile = (basePath: string) => ({
+    name: '你的姓名',
+    title: '你的标题',
+    location: '你的位置',
+    bio: '你的简介',
+    skills: ['技能1', '技能2', '技能3'],
+    avatar: `${basePath}/image/your-avatar.png`
+})
+```
+
+### 修改时间线数据
+在 `app/data/constants.ts` 中修改默认时间线：
+
+```typescript
+export const DEFAULT_TIMELINE = [
+    { event: '你的事件', date: '2024.1' },
+    { event: '另一个事件', date: '2023.9-2024.6' }
+]
+```
+
+### 修改背景图片
+在 `app/data/constants.ts` 中修改背景图片配置：
+
+```typescript
+export const getBackgroundImages = (basePath: string): BackgroundImage[] => [
+    { name: `${basePath}/image/bg/your-image.jpg`, label: '你的标签' },
     // ... 更多背景
 ]
 ```
 
-### 个人信息编辑
-✨ 现在支持可视化编辑！点击个人信息卡片右上角的设置按钮即可编辑：
-- 头像上传 (支持拖拽)
-- 个人信息 (姓名、标题、地址、简介)
-- 技能标签 (动态添加/删除，智能推荐)
-- 时间线管理 (事件编辑，日期选择器)
-
-所有修改会自动保存到本地存储。
-
 ### 修改项目/站点
+在 `app/data/constants.ts` 中修改站点和项目配置：
+
 ```typescript
-const sites = [
+export const SITE_CONFIGS: SiteConfig[] = [
     {
         title: '项目名',
         subtitle: '项目描述',
         icon: '📝',
+        color: 'bg-blue-500/20',
         href: '/link'
     }
 ]
 ```
 
 ### 修改社交链接
-```typescript
-const socialLinks = [
-    { icon: Github, href: 'https://github.com/your-username', label: 'GitHub' },
-    { icon: Mail, href: 'mailto:your-email@example.com', label: 'Email' },
-]
-```
+社交链接在 `getSocialLinks` 函数中配置，包括GitHub、邮箱、赞赏码等。
 
 ## 📱 响应式设计
 
@@ -173,4 +181,4 @@ MIT License
 
 ---
 
-💡 **提示**: 这是一个完全可定制的个人主页模板，你可以根据自己的需求修改颜色、布局、内容等。 
+💡 **提示**: 这是一个静态展示的个人主页模板，你可以通过修改配置文件来自定义内容、颜色、布局等。 

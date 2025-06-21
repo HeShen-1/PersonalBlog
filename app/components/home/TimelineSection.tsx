@@ -1,25 +1,16 @@
-import { Settings } from 'lucide-react'
 import { TimelineItem } from '../../types/profile'
 
 interface TimelineSectionProps {
     timelineData: TimelineItem[]
-    onEditClick: () => void
 }
 
 /**
  * 时间线展示组件
- * 显示时间线事件列表，包含编辑按钮
+ * 显示时间线事件列表
  */
-export default function TimelineSection({ timelineData, onEditClick }: TimelineSectionProps) {
+export default function TimelineSection({ timelineData }: TimelineSectionProps) {
     return (
         <div className="bg-black/20 backdrop-blur-md rounded-2xl p-6 border border-white/10 relative">
-            <button
-                onClick={onEditClick}
-                className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-300 group"
-                title="编辑时间线"
-            >
-                <Settings size={16} className="text-white/70 group-hover:text-white transition-colors" />
-            </button>
 
             <div className="space-y-4">
                 {timelineData.map((item, index) => (

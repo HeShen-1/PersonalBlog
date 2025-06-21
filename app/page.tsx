@@ -32,16 +32,15 @@ import GitHubContributions from './components/home/GitHubContributions'
 import SitesSection from './components/home/SitesSection'
 import ProjectsSection from './components/home/ProjectsSection'
 import BackgroundSelector from './components/home/BackgroundSelector'
+import TimeCalendarWidget from './components/home/TimeCalendarWidget'
 
 // 弹窗组件导入
-import ProfileSettings from './components/home/modals/ProfileSettings'
-import TimelineSettings from './components/home/modals/TimelineSettings'
 import EmailCard from './components/home/modals/EmailCard'
 import PraiseCode from './components/home/modals/PraiseCode'
 
 /**
- * 个人博客首页组件（重构版本）
- * 使用新的模块化架构，从原来的2700+行减少到约400行
+ * 个人博客首页组件
+ * 静态展示版本，移除了所有设置功能
  */
 export default function Home() {
     // 获取主题状态
@@ -59,8 +58,6 @@ export default function Home() {
     const [showPraiseCode, setShowPraiseCode] = useState(false)
     const [showEmailCard, setShowEmailCard] = useState(false)
     const [showCopySuccess, setShowCopySuccess] = useState(false)
-    const [showProfileSettings, setShowProfileSettings] = useState(false)
-    const [showTimelineSettings, setShowTimelineSettings] = useState(false)
 
     // 使用自定义Hooks管理状态
     const profile = useProfile(basePath)
@@ -119,6 +116,9 @@ export default function Home() {
                 />
             )}
 
+            {/* 时间和日历组件 - 右上角浮动定位 */}
+            <TimeCalendarWidget />
+
             {/* 主要内容区域 */}
             <div className="relative z-10 flex min-h-screen navbar-safe-area">
                 {/* 左侧栏 */}
@@ -131,7 +131,6 @@ export default function Home() {
                     {/* 个人信息卡片 */}
                     <ProfileCard
                         profileData={profile.profileData}
-                        onEditClick={() => setShowProfileSettings(true)}
                     />
 
                     {/* 技能标签区域 */}
@@ -140,8 +139,9 @@ export default function Home() {
                     {/* 时间线区域 */}
                     <TimelineSection
                         timelineData={timeline.getSortedTimelineData()}
-                        onEditClick={() => setShowTimelineSettings(true)}
                     />
+
+
                 </motion.div>
 
                 {/* 主要内容区域 */}
@@ -295,20 +295,6 @@ export default function Home() {
                 <PraiseCode
                     onClose={() => setShowPraiseCode(false)}
                     basePath={basePath}
-                />
-            )}
-
-            {showProfileSettings && (
-                <ProfileSettings
-                    profile={profile}
-                    onClose={() => setShowProfileSettings(false)}
-                />
-            )}
-
-            {showTimelineSettings && (
-                <TimelineSettings
-                    timeline={timeline}
-                    onClose={() => setShowTimelineSettings(false)}
                 />
             )}
         </div>

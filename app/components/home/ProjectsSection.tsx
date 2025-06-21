@@ -22,7 +22,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
             </h2>
             <div className="grid grid-cols-4 gap-4 mb-8">
                 {projects.map((project, index) => (
-                    <Link key={index} href={project.href}>
+                    <Link key={index} href={project.href} target="_blank" rel="noopener noreferrer">
                         <div className="bg-black/20 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:bg-black/30 transition-all duration-300 cursor-pointer">
                             <div className="text-4xl mb-3">{project.icon}</div>
                             <h3 className="text-white font-semibold mb-1">{project.title}</h3>

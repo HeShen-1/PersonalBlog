@@ -50,8 +50,12 @@ export default function Navbar({ onImageToggle, showImageToggle = false }: Navba
                                 whileTap={{ scale: 0.95 }}
                             >
                                 <Link href="/" className="flex items-center space-x-3">
-                                    <div className="w-10 h-10 bg-gradient-to-r from-blue-400 via-blue-400 to-blue-400 rounded-xl flex items-center justify-center shadow-lg">
-                                        <span className="text-white font-bold text-lg">R</span>
+                                    <div className="w-10 h-10 bg-zinc-600/20 rounded-xl overflow-hidden shadow-lg">
+                                        <img
+                                            src="/image/svg/logo.svg"
+                                            alt="River Logo"
+                                            className="w-full h-full object-cover"
+                                        />
                                     </div>
                                     <span className="font-bold text-white text-2xl tracking-tight">River</span>
                                 </Link>
@@ -82,6 +86,7 @@ export default function Navbar({ onImageToggle, showImageToggle = false }: Navba
 
                         {/* 右侧按钮区域 */}
                         <div className="flex items-center justify-end space-x-4 w-80">
+
                             {/* 主题按钮 */}
                             <motion.button
                                 whileHover={{ scale: 1.1 }}
@@ -151,6 +156,8 @@ export default function Navbar({ onImageToggle, showImageToggle = false }: Navba
                                 </Link>
                             </motion.div>
                         ))}
+
+
                         <motion.div
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}

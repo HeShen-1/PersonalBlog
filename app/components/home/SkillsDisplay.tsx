@@ -20,9 +20,23 @@ export default function SkillsDisplay() {
             </h2>
             <div className="bg-black/20 backdrop-blur-md rounded-2xl p-6 border border-white/10">
                 <div className="grid grid-cols-10 gap-4">
+
+                    {/* springboot - SVG 图标 */}
+                    <motion.div
+                        className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
+                        whileHover={{ scale: 1.1 }}
+                        title="SpringBoot"
+                    >
+                        <img
+                            src="/image/svg/springboot.svg"
+                            alt="SpringBoot"
+                            className="w-8 h-8 group-hover:scale-110 transition-transform"
+                        />
+                    </motion.div>
+
                     {/* Docker - SVG 图标 */}
                     <motion.div
-                        className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
+                        className="w-12 h-12 bg-sky-600/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
                         whileHover={{ scale: 1.1 }}
                         title="Docker"
                     >
@@ -33,15 +47,68 @@ export default function SkillsDisplay() {
                         />
                     </motion.div>
 
+                    {/* Idea - SVG 图标 */}
+                    <motion.div
+                        className="w-12 h-12 bg-indigo-500/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
+                        whileHover={{ scale: 1.1 }}
+                        title="Idea"
+                    >
+                        <img
+                            src="/image/svg/idea.svg"
+                            alt="Idea"
+                            className="w-8 h-8 group-hover:scale-110 transition-transform"
+                        />
+                    </motion.div>
+
                     {/* Java - SVG 图标 */}
                     <motion.div
-                        className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
+                        className="w-12 h-12 bg-stone-300/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
                         whileHover={{ scale: 1.1 }}
                         title="Java"
                     >
                         <img
                             src="/image/svg/java.svg"
                             alt="Java"
+                            className="w-8 h-8 group-hover:scale-110 transition-transform"
+                        />
+                    </motion.div>
+
+
+                    {/* Linux - SVG 图标 */}
+                    <motion.div
+                        className="w-12 h-12 bg-amber-400/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
+                        whileHover={{ scale: 1.1 }}
+                        title="Linux"
+                    >
+                        <img
+                            src="/image/svg/linux.svg"
+                            alt="Linux"
+                            className="w-8 h-8 group-hover:scale-110 transition-transform"
+                        />
+                    </motion.div>
+
+                    {/* MySQL - SVG 图标 */}
+                    <motion.div
+                        className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
+                        whileHover={{ scale: 1.1 }}
+                        title="MySQL"
+                    >
+                        <img
+                            src="/image/svg/mysql.svg"
+                            alt="MySQL"
+                            className="w-8 h-8 group-hover:scale-110 transition-transform"
+                        />
+                    </motion.div>
+
+                    {/* Ollama - SVG 图标 */}
+                    <motion.div
+                        className="w-12 h-12 bg-sky-50/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
+                        whileHover={{ scale: 1.1 }}
+                        title="Ollama"
+                    >
+                        <img
+                            src="/image/svg/ollama.svg"
+                            alt="Ollama"
                             className="w-8 h-8 group-hover:scale-110 transition-transform"
                         />
                     </motion.div>
@@ -59,9 +126,63 @@ export default function SkillsDisplay() {
                         />
                     </motion.div>
 
+
+                    {/* Pytorch - SVG 图标 */}
+                    <motion.div
+                        className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
+                        whileHover={{ scale: 1.1 }}
+                        title="Pytorch"
+                    >
+                        <img
+                            src="/image/svg/pytorch.svg"
+                            alt="Pytorch"
+                            className="w-8 h-8 group-hover:scale-110 transition-transform"
+                        />
+                    </motion.div>
+
+                    {/* Tensorflow - SVG 图标 */}
+                    <motion.div
+                        className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
+                        whileHover={{ scale: 1.1 }}
+                        title="Tensorflow"
+                    >
+                        <img
+                            src="/image/svg/tensorflow.svg"
+                            alt="Tensorflow"
+                            className="w-8 h-8 group-hover:scale-110 transition-transform"
+                        />
+                    </motion.div>
+
+                    {/* Terminal - SVG 图标 */}
+                    <motion.div
+                        className="w-12 h-12 bg-neutral-50/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
+                        whileHover={{ scale: 1.1 }}
+                        title="Terminal"
+                    >
+                        <img
+                            src="/image/svg/terminal.svg"
+                            alt="Terminal"
+                            className="w-8 h-8 group-hover:scale-110 transition-transform"
+                        />
+                    </motion.div>
+
+                    {/* VSCode - SVG 图标 */}
+                    <motion.div
+                        className="w-12 h-12 bg-blue-400/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
+                        whileHover={{ scale: 1.1 }}
+                        title="VSCode"
+                    >
+                        <img
+                            src="/image/svg/vscode.svg"
+                            alt="VSCode"
+                            className="w-8 h-8 group-hover:scale-110 transition-transform"
+                        />
+                    </motion.div>
+
+
                     {/* TypeScript - SVG 图标 */}
                     <motion.div
-                        className="w-12 h-12 bg-blue-600/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
+                        className="w-12 h-12 bg-cyan-300/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
                         whileHover={{ scale: 1.1 }}
                         title="TypeScript"
                     >
@@ -72,59 +193,98 @@ export default function SkillsDisplay() {
                         />
                     </motion.div>
 
-                    {/* React - React 图标组件 */}
+                    {/* React - SVG 图标组件 */}
                     <motion.div
                         className="w-12 h-12 bg-cyan-400/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
                         whileHover={{ scale: 1.1 }}
                         title="React"
                     >
-                        <SiReact className="text-cyan-400 text-2xl group-hover:text-cyan-300 transition-colors" />
+                        <img
+                            src="/image/svg/React.svg"
+                            alt="TypeScript"
+                            className="w-8 h-8 group-hover:scale-110 transition-transform"
+                        />
                     </motion.div>
 
-                    {/* Git - React 图标组件 */}
+                    {/* Git - SVG 图标组件 */}
                     <motion.div
                         className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
                         whileHover={{ scale: 1.1 }}
                         title="Git"
                     >
-                        <SiGit className="text-red-500 text-2xl group-hover:text-red-400 transition-colors" />
+                        <img
+                            src="/image/svg/git.svg"
+                            alt="TypeScript"
+                            className="w-8 h-8 group-hover:scale-110 transition-transform"
+                        />
                     </motion.div>
 
-                    {/* GitHub - React 图标组件 */}
+                    {/* GitHub - SVG 图标组件 */}
                     <motion.div
-                        className="w-12 h-12 bg-gray-500/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
+                        className="w-12 h-12 bg-violet-100/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
                         whileHover={{ scale: 1.1 }}
                         title="GitHub"
                     >
-                        <SiGithub className="text-white text-2xl group-hover:text-gray-300 transition-colors" />
+                        <img
+                            src="/image/svg/github.svg"
+                            alt="TypeScript"
+                            className="w-8 h-8 group-hover:scale-110 transition-transform"
+                        />
                     </motion.div>
 
-                    {/* JavaScript - React 图标组件 */}
+                    {/* JavaScript - SVG 图标组件 */}
                     <motion.div
                         className="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
                         whileHover={{ scale: 1.1 }}
                         title="JavaScript"
                     >
-                        <SiJavascript className="text-yellow-500 text-2xl group-hover:text-yellow-400 transition-colors" />
+                        <img
+                            src="/image/svg/javascript.svg"
+                            alt="TypeScript"
+                            className="w-8 h-8 group-hover:scale-110 transition-transform"
+                        />
                     </motion.div>
 
-                    {/* Vue.js - React 图标组件 */}
+                    {/* Vue.js - SVG 图标组件 */}
                     <motion.div
-                        className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
+                        className="w-12 h-12 bg-pink-50/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
                         whileHover={{ scale: 1.1 }}
                         title="Vue.js"
                     >
-                        <SiVuedotjs className="text-green-500 text-2xl group-hover:text-green-400 transition-colors" />
+                        <img
+                            src="/image/svg/vue.svg"
+                            alt="TypeScript"
+                            className="w-8 h-8 group-hover:scale-110 transition-transform"
+                        />
                     </motion.div>
 
-                    {/* Node.js - React 图标组件 */}
+                    {/* Node.js - SVG 图标组件 */}
                     <motion.div
-                        className="w-12 h-12 bg-green-600/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
+                        className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
                         whileHover={{ scale: 1.1 }}
                         title="Node.js"
                     >
-                        <SiNodedotjs className="text-green-600 text-2xl group-hover:text-green-500 transition-colors" />
+                        <img
+                            src="/image/svg/node.svg"
+                            alt="TypeScript"
+                            className="w-8 h-8 group-hover:scale-110 transition-transform"
+                        />
                     </motion.div>
+
+                    {/* Redis - SVG 图标组件 */}
+                    <motion.div
+                        className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
+                        whileHover={{ scale: 1.1 }}
+                        title="Redis"
+                    >
+                        <img
+                            src="/image/svg/redis.svg"
+                            alt="TypeScript"
+                            className="w-8 h-8 group-hover:scale-110 transition-transform"
+                        />
+                    </motion.div>
+
+
                 </div>
             </div>
         </motion.div>
