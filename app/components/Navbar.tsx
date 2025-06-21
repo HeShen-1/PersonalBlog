@@ -9,9 +9,10 @@ import { useTheme } from './ThemeProvider'
 interface NavbarProps {
     onImageToggle?: () => void
     showImageToggle?: boolean
+    basePath?: string
 }
 
-export default function Navbar({ onImageToggle, showImageToggle = false }: NavbarProps) {
+export default function Navbar({ onImageToggle, showImageToggle = false, basePath = '' }: NavbarProps) {
     const [isOpen, setIsOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false)
     const { theme, toggleTheme } = useTheme()
@@ -52,7 +53,7 @@ export default function Navbar({ onImageToggle, showImageToggle = false }: Navba
                                 <Link href="/" className="flex items-center space-x-3">
                                     <div className="w-10 h-10 bg-zinc-600/20 rounded-xl overflow-hidden shadow-lg">
                                         <img
-                                            src="/image/svg/logo.svg"
+                                            src={`${basePath}/image/svg/logo.svg`}
                                             alt="River Logo"
                                             className="w-full h-full object-cover"
                                         />

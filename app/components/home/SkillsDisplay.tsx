@@ -4,11 +4,15 @@ import {
     SiRedis, SiHtml5, SiCss3, SiTailwindcss
 } from 'react-icons/si'
 
+interface SkillsDisplayProps {
+    basePath?: string
+}
+
 /**
  * 技能图标展示组件
  * 显示各种技术栈图标网格
  */
-export default function SkillsDisplay() {
+export default function SkillsDisplay({ basePath = '' }: SkillsDisplayProps) {
     return (
         <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -28,7 +32,7 @@ export default function SkillsDisplay() {
                         title="SpringBoot"
                     >
                         <img
-                            src="/image/svg/springboot.svg"
+                            src={`${basePath}/image/svg/springboot.svg`}
                             alt="SpringBoot"
                             className="w-8 h-8 group-hover:scale-110 transition-transform"
                         />
@@ -41,7 +45,7 @@ export default function SkillsDisplay() {
                         title="Docker"
                     >
                         <img
-                            src="/image/svg/Docker.svg"
+                            src={`${basePath}/image/svg/Docker.svg`}
                             alt="Docker"
                             className="w-8 h-8 group-hover:scale-110 transition-transform"
                         />
@@ -54,7 +58,7 @@ export default function SkillsDisplay() {
                         title="Idea"
                     >
                         <img
-                            src="/image/svg/idea.svg"
+                            src={`${basePath}/image/svg/Idea.svg`}
                             alt="Idea"
                             className="w-8 h-8 group-hover:scale-110 transition-transform"
                         />
@@ -67,12 +71,11 @@ export default function SkillsDisplay() {
                         title="Java"
                     >
                         <img
-                            src="/image/svg/java.svg"
+                            src={`${basePath}/image/svg/java.svg`}
                             alt="Java"
                             className="w-8 h-8 group-hover:scale-110 transition-transform"
                         />
                     </motion.div>
-
 
                     {/* Linux - SVG 图标 */}
                     <motion.div
@@ -81,7 +84,7 @@ export default function SkillsDisplay() {
                         title="Linux"
                     >
                         <img
-                            src="/image/svg/linux.svg"
+                            src={`${basePath}/image/svg/linux.svg`}
                             alt="Linux"
                             className="w-8 h-8 group-hover:scale-110 transition-transform"
                         />
@@ -94,7 +97,7 @@ export default function SkillsDisplay() {
                         title="MySQL"
                     >
                         <img
-                            src="/image/svg/mysql.svg"
+                            src={`${basePath}/image/svg/mysql.svg`}
                             alt="MySQL"
                             className="w-8 h-8 group-hover:scale-110 transition-transform"
                         />
@@ -107,7 +110,7 @@ export default function SkillsDisplay() {
                         title="Ollama"
                     >
                         <img
-                            src="/image/svg/ollama.svg"
+                            src={`${basePath}/image/svg/ollama.svg`}
                             alt="Ollama"
                             className="w-8 h-8 group-hover:scale-110 transition-transform"
                         />
@@ -120,12 +123,11 @@ export default function SkillsDisplay() {
                         title="Python"
                     >
                         <img
-                            src="/image/svg/Python.svg"
+                            src={`${basePath}/image/svg/Python.svg`}
                             alt="Python"
                             className="w-8 h-8 group-hover:scale-110 transition-transform"
                         />
                     </motion.div>
-
 
                     {/* Pytorch - SVG 图标 */}
                     <motion.div
@@ -134,7 +136,7 @@ export default function SkillsDisplay() {
                         title="Pytorch"
                     >
                         <img
-                            src="/image/svg/pytorch.svg"
+                            src={`${basePath}/image/svg/Pytorch.svg`}
                             alt="Pytorch"
                             className="w-8 h-8 group-hover:scale-110 transition-transform"
                         />
@@ -147,7 +149,7 @@ export default function SkillsDisplay() {
                         title="Tensorflow"
                     >
                         <img
-                            src="/image/svg/tensorflow.svg"
+                            src={`${basePath}/image/svg/TensorFlow.svg`}
                             alt="Tensorflow"
                             className="w-8 h-8 group-hover:scale-110 transition-transform"
                         />
@@ -160,7 +162,7 @@ export default function SkillsDisplay() {
                         title="Terminal"
                     >
                         <img
-                            src="/image/svg/terminal.svg"
+                            src={`${basePath}/image/svg/terminal.svg`}
                             alt="Terminal"
                             className="w-8 h-8 group-hover:scale-110 transition-transform"
                         />
@@ -173,12 +175,11 @@ export default function SkillsDisplay() {
                         title="VSCode"
                     >
                         <img
-                            src="/image/svg/vscode.svg"
+                            src={`${basePath}/image/svg/vscode.svg`}
                             alt="VSCode"
                             className="w-8 h-8 group-hover:scale-110 transition-transform"
                         />
                     </motion.div>
-
 
                     {/* TypeScript - SVG 图标 */}
                     <motion.div
@@ -187,7 +188,7 @@ export default function SkillsDisplay() {
                         title="TypeScript"
                     >
                         <img
-                            src="/image/svg/ts.svg"
+                            src={`${basePath}/image/svg/ts.svg`}
                             alt="TypeScript"
                             className="w-8 h-8 group-hover:scale-110 transition-transform"
                         />
@@ -200,90 +201,89 @@ export default function SkillsDisplay() {
                         title="React"
                     >
                         <img
-                            src="/image/svg/React.svg"
-                            alt="TypeScript"
+                            src={`${basePath}/image/svg/React.svg`}
+                            alt="React"
                             className="w-8 h-8 group-hover:scale-110 transition-transform"
                         />
                     </motion.div>
 
-                    {/* Git - SVG 图标组件 */}
+                    {/* Git - SVG 图标 */}
                     <motion.div
-                        className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
+                        className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
                         whileHover={{ scale: 1.1 }}
                         title="Git"
                     >
                         <img
-                            src="/image/svg/git.svg"
-                            alt="TypeScript"
+                            src={`${basePath}/image/svg/git.svg`}
+                            alt="Git"
                             className="w-8 h-8 group-hover:scale-110 transition-transform"
                         />
                     </motion.div>
 
-                    {/* GitHub - SVG 图标组件 */}
+                    {/* GitHub - SVG 图标 */}
                     <motion.div
-                        className="w-12 h-12 bg-violet-100/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
+                        className="w-12 h-12 bg-slate-500/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
                         whileHover={{ scale: 1.1 }}
                         title="GitHub"
                     >
                         <img
-                            src="/image/svg/github.svg"
-                            alt="TypeScript"
+                            src={`${basePath}/image/svg/github.svg`}
+                            alt="GitHub"
                             className="w-8 h-8 group-hover:scale-110 transition-transform"
                         />
                     </motion.div>
 
-                    {/* JavaScript - SVG 图标组件 */}
+                    {/* JavaScript - SVG 图标 */}
                     <motion.div
-                        className="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
+                        className="w-12 h-12 bg-yellow-400/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
                         whileHover={{ scale: 1.1 }}
                         title="JavaScript"
                     >
                         <img
-                            src="/image/svg/javascript.svg"
-                            alt="TypeScript"
+                            src={`${basePath}/image/svg/javascript.svg`}
+                            alt="JavaScript"
                             className="w-8 h-8 group-hover:scale-110 transition-transform"
                         />
                     </motion.div>
 
-                    {/* Vue.js - SVG 图标组件 */}
+                    {/* Vue - SVG 图标 */}
                     <motion.div
-                        className="w-12 h-12 bg-pink-50/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
+                        className="w-12 h-12 bg-emerald-400/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
                         whileHover={{ scale: 1.1 }}
-                        title="Vue.js"
+                        title="Vue"
                     >
                         <img
-                            src="/image/svg/vue.svg"
-                            alt="TypeScript"
+                            src={`${basePath}/image/svg/vue.svg`}
+                            alt="Vue"
                             className="w-8 h-8 group-hover:scale-110 transition-transform"
                         />
                     </motion.div>
 
-                    {/* Node.js - SVG 图标组件 */}
+                    {/* Node.js - SVG 图标 */}
                     <motion.div
-                        className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
+                        className="w-12 h-12 bg-green-400/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
                         whileHover={{ scale: 1.1 }}
                         title="Node.js"
                     >
                         <img
-                            src="/image/svg/node.svg"
-                            alt="TypeScript"
+                            src={`${basePath}/image/svg/node.svg`}
+                            alt="Node.js"
                             className="w-8 h-8 group-hover:scale-110 transition-transform"
                         />
                     </motion.div>
 
-                    {/* Redis - SVG 图标组件 */}
+                    {/* Redis - SVG 图标 */}
                     <motion.div
-                        className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
+                        className="w-12 h-12 bg-red-600/20 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
                         whileHover={{ scale: 1.1 }}
                         title="Redis"
                     >
                         <img
-                            src="/image/svg/redis.svg"
-                            alt="TypeScript"
+                            src={`${basePath}/image/svg/redis.svg`}
+                            alt="Redis"
                             className="w-8 h-8 group-hover:scale-110 transition-transform"
                         />
                     </motion.div>
-
 
                 </div>
             </div>

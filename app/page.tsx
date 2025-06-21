@@ -85,6 +85,7 @@ export default function Home() {
             <Navbar
                 onImageToggle={() => setShowBgSelector(!showBgSelector)}
                 showImageToggle={theme === 'light'}
+                basePath={basePath}
             />
 
             {/* 背景层 */}
@@ -256,7 +257,7 @@ export default function Home() {
                     <ProjectsSection projects={PROJECT_CONFIGS} />
 
                     {/* 技能图标展示区域 */}
-                    <SkillsDisplay />
+                    <SkillsDisplay basePath={basePath} />
                 </div>
             </div>
 
